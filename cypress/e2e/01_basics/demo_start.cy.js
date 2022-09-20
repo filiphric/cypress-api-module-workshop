@@ -1,9 +1,5 @@
 /// <reference types="cypress" />
 
-afterEach( () => {
-  cy.visit('/')
-})
-
 it('sends a request over API', () => {
   
 });

@@ -1,28 +1,12 @@
-# HTTP requests
-
-## Sending API requests:
-- two ways of writing `.request()` command
-
-```js
-// short form (passing arguments)
-cy.request('POST', '/api/boards', { name: 'new board' })
-
-// passing object
-cy.request({
-  method: 'POST', 
-  url: '/api/boards',
-  body: { 
-    name: 'new board' 
-    }
-  })
-```
-
 ## Testing API
 - most basic way of checking API using `.its()` command
 ```js
-cy.request('/todos')
+cy.api({
+  method: 'GET',
+  url: '/api/boards'
+  })
   .its('status')
-  .should('eq', 200)
+  .should('eq', 201)
 ```
 
 - more detailed checking of response body

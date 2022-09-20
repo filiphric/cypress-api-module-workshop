@@ -1,31 +1,8 @@
 /// <reference types="cypress" />
 
-afterEach( () => {
-  cy.visit('/')
-})
+it.only('testing board list', () => {
 
-it('sends a request over API', () => {
-
-  cy.request('POST', '/api/boards', {
-    name: "I created this board using .request() command!"
-  })
-  
-});
-
-it('response gets 201 status', () => {
-
-  cy
-    .request('POST', '/api/boards', {
-      name: "I created this board using .request() command!"
-    })
-    .its('status')
-    .should('eq', 201)
-  
-});
-
-it('testing board list', () => {
-
-  cy.request({
+  cy.api({
     method: 'GET',
     url: '/api/boards',
     headers: {
@@ -45,7 +22,7 @@ it('testing board list', () => {
 
 it('filtering boards list', () => {
 
-  cy.request({
+  cy.api({
     method: 'GET',
     url: '/api/boards',
     qs: {
@@ -57,14 +34,8 @@ it('filtering boards list', () => {
   }).then( ({status, body}) => {
 
     expect(status).to.eq(200)
-    expect(body).to.have.length(1)
+    expect(body).to.have.length(0)
 
   })
   
 });
-
-before( () => {
-
-  cy.request('POST', '/api/reset')
-
-})  
