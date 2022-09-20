@@ -1,22 +1,28 @@
 /// <reference types="cypress" />
 
-it.only('testing board list', () => {
+it('creating a board', () => {
 
   cy.api({
-    method: 'GET',
+    method: 'POST',
     url: '/api/boards',
-    headers: {
-      accept: 'application/json'
+    body: {
+      name: 'new board'
     }
-  }).then( ({status, body}) => {
+  }, 'create board')
+  .its('status')
+  .should('eq', 201)
+  
+});
 
-    expect(status).to.eq(200)
-    expect(body).to.have.length(2)
-    expect(body[0].id).to.be.a('number')
-    expect(body[0].starred).to.be.false
-    expect(body[0].user).to.eq(0)
+it('getting an error', () => {
 
-  })
+  cy.api({
+    method: 'POST',
+    url: '/api/boards',
+    failOnStatusCode: false
+  }, 'create board')
+  .its('status')
+  .should('eq', 400)
   
 });
 
@@ -27,15 +33,36 @@ it('filtering boards list', () => {
     url: '/api/boards',
     qs: {
       starred: true
-    },
-    headers: {
-      accept: 'application/json'
     }
-  }).then( ({status, body}) => {
+  }, 'get all starred boards').then( ({ status, body }) => {
 
     expect(status).to.eq(200)
-    expect(body).to.have.length(0)
+    expect(body).to.have.length(1)
 
   })
   
 });
+
+it('testing board list', () => {
+
+  const { filter } = Cypress._
+
+  cy.api({
+    method: 'GET',
+    url: '/api/boards'
+  }, 'get boards list').then( ({ status, body }) => {
+
+    // check attributes of all items
+    const requiredKeys = ['name', 'user', 'starred', 'created', 'id']
+    body.forEach( item => {
+      expect(item).to.have.keys(requiredKeys)
+    })
+    
+    // check that there is a "starred" item
+    const starredItems = filter(body, { starred: true })
+    expect(starredItems).to.have.length(1)
+    
+  })
+  
+});
+
