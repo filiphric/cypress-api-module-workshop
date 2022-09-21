@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@bahmutov/cy-api": "^2.2.0",
+    "chai-json-schema": "^1.5.1",
     "cy-spok": "^1.5.2",
     "cypress": "^10.8.0"
   }

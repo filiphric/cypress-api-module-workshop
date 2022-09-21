@@ -18,7 +18,8 @@ const beforeEachTestSeeds = {
   'cypress/e2e/03_complex_responses/demo_end.cy.js': singleBoardSingleListSingleCard,
   'cypress/e2e/03_complex_responses/demo_start.cy.js': singleBoardSingleListSingleCard,
   'cypress/e2e/03_complex_responses/challenge.cy.js': singleBoardSingleListSingleCard,
-  'cypress/e2e/03_complex_responses/challenge_solution.cy.js': singleBoardSingleListSingleCard
+  'cypress/e2e/03_complex_responses/challenge_solution.cy.js': singleBoardSingleListSingleCard,
+  'cypress/e2e/04_json_schemas/demo_end.cy.js': singleBoardSingleListSingleCard,
 }
 
 const testPath = path.normalize(Cypress.spec.relative)

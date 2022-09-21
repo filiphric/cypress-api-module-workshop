@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Board",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "user": {
+      "type": "integer"
+    },
+    "starred": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "user",
+    "starred",
+    "created",
+    "id"
+  ]
+}

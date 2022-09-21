@@ -1,4 +1,4 @@
-# Advanced API testing using API cy-spok plugin
+# Testing complex responses using cy-spok plugin
 
 Sometimes we cannot predict data that our server generates (or aren’t interested in all of it).
 Yet, if our test looks something like this:
