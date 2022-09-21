@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-// #1: go to https://github.com/bahmutov/cy-api and follow the installation instructions to install cy-api plugin
+// #1: go to https://github.com/bahmutov/cy-spok and follow the installation instructions to install cy-spok plugin
 before(function() { cy.request('POST', '/api/reset') })
 
 beforeEach(function() {
@@ -13,7 +13,7 @@ beforeEach(function() {
     .as('list')
 });
 
-// #2: fill these tests with proper requests
+// #2: fill these tests some assertions using cy-spok plugin
 it('POST /api/boards', function() {
 
   cy.api({
@@ -33,29 +33,12 @@ it('GET /api/boards?starred=true', function() {
     url: '/api/boards',
     qs: {
       starred: true
-    },
-    headers: {
-      accept: 'application/json'
     }
   })
 
 })
 
-it('GET /api/todos', function() {
-  // remember, this endpoint does not exist in our app!
-
-  cy.api({
-    method: 'GET',
-    url: '/api/todos',
-    failOnStatusCode: false,
-    headers: {
-      accept: 'application/json'
-    }
-  })
-
-})
-
-it('POST /api/cards', function() {
+it('POST /api/lists', function() {
 
   cy.api({
     method: 'POST',

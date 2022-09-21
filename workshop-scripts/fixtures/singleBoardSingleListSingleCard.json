@@ -1,0 +1,32 @@
+{
+  "boards": [
+    {
+      "name": "new board",
+      "user": 0,
+      "starred": false,
+      "created": "2022-09-20",
+      "id": 1
+    }
+  ],
+  "cards": [
+    {
+      "name": "new card",
+      "boardId": 4,
+      "listId": 1,
+      "created": "2022-09-20",
+      "deadline": "2022-09-23",
+      "description": "",
+      "completed": false,
+      "id": 1
+    }
+  ],
+  "lists": [
+    {
+      "name": "new list",
+      "boardId": 4,
+      "created": "2022-09-20",
+      "id": 1
+    }
+  ],
+  "users": []
+}
