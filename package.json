@@ -14,9 +14,9 @@
   "author": "Filip Hric (https://filiphric.com/)",
   "license": "ISC",
   "dependencies": {
-    "@bahmutov/cy-api": "^2.2.0",
     "chai-json-schema": "^1.5.1",
     "cy-spok": "^1.5.2",
-    "cypress": "^10.8.0"
+    "cypress": "^10.8.0",
+    "cypress-plugin-api": "^1.2.0"
   }
 }

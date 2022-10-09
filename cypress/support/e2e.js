@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 import '../../workshop-scripts/testSetupHook'
 import '../../workshop-scripts/infoCommand'
-import '@bahmutov/cy-api'
+import 'cypress-plugin-api'
 chai.use(require('chai-json-schema'));
 
 Cypress.Commands.overwrite('request', (orig, ...args) => {
