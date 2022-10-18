@@ -15,9 +15,3 @@ it('gets all cards in list 1', () => {
 
   
 })
-
-// challenge #4: GET all the cards from database and then assert there are 3 completed cards
-it('gets all cards in list 1', () => {
-
-
-})

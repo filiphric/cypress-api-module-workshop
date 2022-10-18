@@ -37,7 +37,7 @@ it('grants access to private board only to authorized user', function() {
     method: 'GET',
     url: `/api/boards/${boardId}`,
     failOnStatusCode: false
-  }, 'unauthorized').its('status').should('eq', 403)
+  }).its('status').should('eq', 403)
 
   cy.api({
     method: 'GET',
@@ -45,6 +45,6 @@ it('grants access to private board only to authorized user', function() {
     headers: {
       authorization
     }
-  }, 'authorized').its('status').should('eq', 200)
+  }).its('status').should('eq', 200)
   
 });

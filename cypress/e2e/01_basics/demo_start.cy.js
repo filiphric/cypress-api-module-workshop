@@ -1,5 +1,8 @@
 /// <reference types="cypress" />
 
+it('retreiving a board from database', () => {
+  
+});
 
 it('creating a board', () => {
 
@@ -12,13 +15,13 @@ it('getting an error', () => {
     method: 'POST',
     url: '/api/boards',
     failOnStatusCode: false
-  }, 'create board')
+  })
   .its('status')
   .should('eq', 400)
   
 });
 
-it('filtering boards list', () => {
+it('filtering boards list with query', () => {
 
   cy.api({
     method: 'GET',
@@ -29,21 +32,3 @@ it('filtering boards list', () => {
   })
   
 });
-
-it('testing board list', () => {
-
-  cy.api({
-    method: 'GET',
-    url: '/api/boards'
-  }).then( ({ status, body }) => {
-
-    // check attributes of items
-    expect(body[0]).to.include.key('created')
-    
-    // check that there is a "starred" item
-    expect(body[1].starred).to.be.true
-
-  })
-  
-});
-

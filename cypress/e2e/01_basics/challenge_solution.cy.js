@@ -9,7 +9,7 @@ it('creates a board', () => {
     body: {
       name: 'new board'
     }
-  }, 'create a board')
+  })
   .its('status')
   .should('eq', 201)
   
@@ -25,7 +25,7 @@ it('gets 400 when creating a card', () => {
       name: 'new card'
     },
     failOnStatusCode: false
-  }, 'create a card')
+  })
   .its('body.error')
   .should('eq', "You need to provide 'boardId' and 'listId' in request body.")
   
@@ -40,27 +40,8 @@ it('gets all cards in list 1', () => {
     qs: {
       listId: 1
     }
-  }, 'get all card from list 1')
+  })
   .its('body')
   .should('have.length', 3)
-
   
-})
-
-// challenge #4: GET all the cards from database and then assert there are 3 completed cards
-it('gets all cards and test the completed ones', () => {
-
-  cy.api({
-    method: 'GET',
-    url: '/api/cards'
-  }, 'get all cards')
-  .then( ({ body }) => {
-
-    const { filter } = Cypress._
-
-    const completedCards = filter(body, { completed: true })
-    expect(completedCards).to.have.length(3)
-
-  })
-
 })

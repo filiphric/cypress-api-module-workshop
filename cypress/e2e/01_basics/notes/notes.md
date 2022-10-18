@@ -39,24 +39,6 @@ cy.request('/api/boards')
   })
 ```
 
-## Handling response data
-Once we get a response back from the server, we can handle it in any way we need. Bundled tools like lodash are a huge help here.
-
-```js
- const { filter } = Cypress._
-
-  cy.api({
-    method: 'GET',
-    url: '/api/boards'
-  }).then( ({ status, body }) => {
-
-     // check that there is a "starred" item
-    const starredItems = filter(body, { starred: true })
-    expect(starredItems).to.have.length(1)
-    
-  })
-```
-
 ## Useful reading
 * [docs for .request() command](https://docs.cypress.io/api/commands/request.html#Syntax)
 * [article on why it is useful to skip UI and use API instead](https://code.kiwi.com/skip-the-ui-using-api-calls-d358b9b61b91)
