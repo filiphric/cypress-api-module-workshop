@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+// #1: fill these tests some assertions using cy-spok plugin
 it('POST /api/boards', function() {
 
   cy.api({

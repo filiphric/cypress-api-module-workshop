@@ -16,7 +16,7 @@
   "dependencies": {
     "chai-json-schema": "^1.5.1",
     "cy-spok": "^1.5.2",
-    "cypress": "^10.8.0",
-    "cypress-plugin-api": "^1.4.0"
+    "cypress": "^12.0.2",
+    "cypress-plugin-api": "^2.6.1"
   }
 }
